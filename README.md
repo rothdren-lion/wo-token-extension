@@ -9,7 +9,7 @@
 | `firefox-mv2/` | Firefox 78–115 | `browser.*`（Promise），Manifest V2 |
 | `safari/` | Safari 16.4+（macOS / iOS） | `browser.*`（Promise），Manifest V3 |
 
-`legacy/chrome-mv2.1/` 是改造前的原始文件，仅备份。
+`legacy/chrome-mv2.1/` 是改造前的原始文件，只在本地保留，不入库。
 
 打包：
 
