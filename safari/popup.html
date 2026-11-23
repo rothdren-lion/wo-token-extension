@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>openlist一键刷新联通盘token</title>
+<style>
+  body { width: 340px; font-family: system-ui, sans-serif; margin: 12px; }
+  label { display: block; font-size: 13px; margin: 8px 0 4px; }
+  input { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 6px; }
+  .row { display: flex; gap: 8px; margin-top: 10px; }
+  .row input { flex: 1; }
+  button { padding: 8px; border: none; border-radius: 6px; background: #1677ff; color: #fff; cursor: pointer; white-space: nowrap; }
+  .row.wide button { flex: 1; }
+  button:disabled { background: #ccc; cursor: not-allowed; }
+  button.copy { background: #f0f0f0; color: #333; border: 1px solid #ccc; }
+  #status { font-size: 12px; color: #666; margin-top: 8px; min-height: 16px; }
+  .tip { font-size: 11px; color: #999; margin-top: 8px; }
+  .field { margin-top: 10px; }
+  hr { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+</style>
+</head>
+<body>
+  <label>手机号</label>
+  <input id="phone" placeholder="请输入手机号" inputmode="numeric">
+  <div class="row wide"><button id="send">发送验证码</button></div>
+  <label>短信验证码</label>
+  <input id="code" placeholder="请输入6位验证码" inputmode="numeric">
+  <div class="row wide"><button id="login">登录并提取</button></div>
+  <div id="status"></div>
+  <div class="field">
+    <label>访问令牌 Access Token</label>
+    <div class="row"><input id="access" readonly><button class="copy" data-copy="access">复制</button></div>
+  </div>
+  <div class="field">
+    <label>刷新令牌 Refresh Token</label>
+    <div class="row"><input id="refresh" readonly><button class="copy" data-copy="refresh">复制</button></div>
+  </div>
+  <div class="row wide"><button id="get">重新提取</button></div>
+
+  <hr>
+  <label>OpenList 地址（域名或 IP，含端口/子路径）</label>
+  <input id="olUrl" placeholder="http://192.168.1.100:5244">
+  <div class="row">
+    <input id="olUser" placeholder="OpenList 用户名">
+    <input id="olPass" type="password" placeholder="密码">
+  </div>
+  <div class="row">
+    <input id="olMount" placeholder="挂载路径，如 /联通云盘">
+  </div>
+  <div class="row wide">
+    <button id="saveOl">保存设置</button>
+    <button id="writeOl">写入 OpenList</button>
+  </div>
+  <div class="tip">「登录并提取」成功后若已填 OpenList 设置，会自动写入（已存在则更新）。根目录 ID 填 0，Family ID 留空，挂载个人云。</div>
+  <script src="popup.js"></script>
+</body>
+</html>

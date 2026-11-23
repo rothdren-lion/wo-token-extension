@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "openlist一键刷新联通盘token",
+  "version": "3.0.0",
+  "description": "自动登录联通云盘提取 token，并直接写入 OpenList 的 WoPan 存储",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "openlist一键刷新联通盘token"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://panservice.mail.wo.cn/h5/wocloud_ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["storage"],
+  "host_permissions": ["https://panservice.mail.wo.cn/*", "http://*/*", "https://*/*"]
+}
